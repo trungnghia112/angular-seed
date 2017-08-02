@@ -1,0 +1,27 @@
+<div class="auth-page">
+
+  <div class="container">
+    <form class="form-signin" [formGroup]="form" (ngSubmit)="submitForm(form.value)" novalidate>
+      <h2 class="form-signin-heading">{{ title }}</h2>
+      <p class="text-center">
+        <a [routerLink]="['/register']">Need an account?</a>
+      </p>
+
+      <list-errors [errors]="errors"></list-errors>
+
+      <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group">
+          <input [formControl]="email" type="email" class="form-control" placeholder="Email">
+        </fieldset>
+        <fieldset class="form-group">
+          <input [formControl]="password" type="password" class="form-control" id="password" placeholder="Password">
+        </fieldset>
+      </fieldset>
+
+      <button class="btn btn-primary btn-block" [disabled]="!form.valid" type="submit">
+        {{ title }}
+      </button>
+    </form>
+
+  </div> <!-- /container -->
+</div>
